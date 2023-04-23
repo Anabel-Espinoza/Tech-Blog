@@ -4,12 +4,16 @@ const { Comment, User, Post } = require('../models')
 
 router.get('/', async (req, res) => {
     try {
-        const allPosts = await Post.findAll()
-        res.status(200).json(allPosts)
-        // const posts = allPosts.map((post) => posts.get({ plain: true }))
-        // res.render('homepage')
+        const allPosts = await Post.findAll({
+            include: [ { model: User, attributes: ['username'] }]
+        })
+        // res.status(200).json(allPosts)
+        const posts = allPosts.map((post) => post.get({ plain: true }))
+        console.log(posts)
+        res.render('homepage', { posts })
     } catch (err) {
         res.status(500).json(err)
     }
 })
 
+module.exports = router
