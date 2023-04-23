@@ -1,0 +1,16 @@
+<div class="card p-4">
+    <div class="card-header">{{post.title}}</div>
+        <div class="card-body">
+            <p>{{post.content}}</p>
+        </div>
+        <div class="card-footer text-muted">
+            Posted by {{post.user.username}} on {{format_date post.date_created}}
+        </div>
+    </div>
+    
+    {{!-- IF logged in, allow to enter comment  --}}
+
+    {{!-- {{#each comments as |comment|}} --}}
+    <div class="card-body">Comments{{post.comments.body}}</div>
+    {{!-- {{/each}} --}}
+</div>

@@ -13,7 +13,7 @@ body {
     height: 100vh;
 }
 
-a {
+nav a {
     text-decoration: none;
     color: white
 }
@@ -40,4 +40,39 @@ header img{
 
 .card-header {
     font-weight: bolder;
+    color:5fa8d3;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.login {
+    margin:auto;
+    border: lightgray solid thin;
+    text-align: center;
+    min-height: 75%;
+    width: 50%;
+    line-height: 2rem;
+    padding: 35px;
+}
+
+.btn {
+    background-color: #1b4965;
+    color: #cae9ff;
+    font-weight: bold;
+}
+
+.btn:hover{
+    color: #1b4965;
+    background-color: #cae9ff;
+}
+
+.login a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #1b4965
+}
+
+.login h2 { 
+    color: #1b4965
 }
