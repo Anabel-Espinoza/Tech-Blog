@@ -13,9 +13,16 @@ body {
     height: 100vh;
 }
 
-nav a {
+a {
     text-decoration: none;
+}
+
+nav a {
     color: white
+}
+
+.new-post-btn {
+    color: #cae9ff
 }
 
 h1 {
@@ -40,7 +47,7 @@ header img{
 
 .card-header {
     font-weight: bolder;
-    color:5fa8d3;
+    color: #1b4965;
     text-decoration: none;
     cursor: pointer;
     font-size: 18px;
@@ -75,4 +82,18 @@ header img{
 
 .login h2 { 
     color: #1b4965
+}
+
+.new-post-form {
+    margin:auto;
+    border: lightgray solid thin;
+    text-align: left;
+    min-height: 75%;
+    width: 80%;
+    line-height: 2rem;
+    padding: 35px;
+}
+
+.new-post-form input {
+    width: 100%;
 }

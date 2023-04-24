@@ -1,0 +1,12 @@
+<div class="dashboard">
+    <h2 class="m-4">Your Dashboard</h2>
+    {{!-- existing user posts here --}}
+    {{#if posts.length}}
+        {{#each posts as |post|}}
+        <div class="post m-3">
+            <h4><a href="/posts/{{post.id}}">{{post.title}}</a></h4>
+        </div>
+        {{/each}}
+    {{/if}}
+    <button class="btn m-3" type="submit"><a class= "new-post-btn" href="/new-post">+ New Post</button>
+</div>
