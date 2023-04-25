@@ -106,3 +106,8 @@ header img{
     background-color: #b5e2fa;
     font-size: 14px;
 }
+
+#logout {
+    background-color: transparent;
+    color: white
+}
