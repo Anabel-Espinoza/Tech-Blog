@@ -9,8 +9,7 @@
     </div>
     
     {{!-- IF logged in, allow to enter comment  --}}
-
-    {{!-- {{#each comments as |comment|}} --}}
-    <div class="card-body">Comments{{post.comments.body}}</div>
-    {{!-- {{/each}} --}}
+    {{#if post.comments}}
+        {{> comments }}
+    {{/if}}
 </div>

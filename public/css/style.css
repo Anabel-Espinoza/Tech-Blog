@@ -97,3 +97,12 @@ header img{
 .new-post-form input {
     width: 100%;
 }
+
+.cursive {
+    font-style: italic;
+}
+
+.comment {
+    background-color: #b5e2fa;
+    font-size: 14px;
+}

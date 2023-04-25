@@ -6,7 +6,7 @@ const newPostHandler = async (event) => {
     const content = document.querySelector('#post-content').value.trim()
 
     if (title && content) {
-        const response = await fetch('../controllers/api/posts.js', {
+        const response = await fetch('/api/posts', {
             method: 'POST',
             body: JSON.stringify({ title, content }),
             headers: {
@@ -21,5 +21,5 @@ const newPostHandler = async (event) => {
         }
     }
 }
-// click or submit?
+
 document.querySelector('#create-post').addEventListener('click', newPostHandler)

@@ -1,0 +1,8 @@
+<section class="comments">
+    <h4 class="m-4 card-header">Comments</h2>
+    {{#each post.comments as |comment|}}
+    <div class="card-body comment mx-4 my-2"> {{body}}. <br>
+        <span class="cursive text-mutted"> - {{user.username}}, {{format_date date_created}}</span>
+    </div>
+    {{/each}}
+</section>

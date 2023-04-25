@@ -21,7 +21,11 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
     try {
         const postById = await Post.findByPk(req.params.id, {
-            include: [{ model: User, attributes: ['username'] }, { model: Comment }] 
+            include: [{ 
+                model: User, 
+                attributes: ['username'] }, { 
+                model: Comment, include: { model: User, attributes: ['username'] } },
+                ] 
         })
         const post = postById.get({ plain: true })
         console.log(post)
