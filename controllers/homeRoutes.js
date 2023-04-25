@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         // res.status(200).json(allPosts)
         const posts = allPosts.map((post) => post.get({ plain: true }))
         console.log(posts)
-        res.render('homepage', { posts })
+        res.render('homepage', { posts, loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(500).json(err)
     }
@@ -29,13 +29,18 @@ router.get('/post/:id', async (req, res) => {
         })
         const post = postById.get({ plain: true })
         console.log(post)
-        res.render('post', { post }) //NEED to add comments to that post
+        res.render('post', { post, loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(500).json(err)
     }
 })
 
+// Login route
 router.get('/login', (req, res) => {
+    if(req.session.loggedIn) {
+        res.redirect('/')
+        return
+    }
     res.render('login')
 })
 
@@ -43,6 +48,7 @@ router.get('/signup', (req, res) => {
     res.render('signup')
 })
 
+// GET logged in user posts
 router.get('/dashboard', (req, res) => {
     res.render('dashboard')
 })
