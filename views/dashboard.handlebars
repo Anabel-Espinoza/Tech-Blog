@@ -3,8 +3,8 @@
     {{!-- existing user posts here --}}
     {{#if posts.length}}
         {{#each posts as |post|}}
-        <div class="post m-3">
-            <h4><a href="/posts/{{post.id}}">{{post.title}}</a></h4>
+        <div class="card-body post mx-4 my-2">
+            <a href="/post/{{post.id}}">{{post.title}}, {{format_date post.date_created}}</a>
         </div>
         {{/each}}
     {{/if}}

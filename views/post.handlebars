@@ -9,7 +9,22 @@
     </div>
     
     {{!-- IF logged in, allow to enter comment  --}}
+    {{#if loggedIn}}
+        <form class="form new-comment p-6 m-4 col-6">
+            <div class="form-group">
+                <label for="comment my-3">Comment:</label><br>
+                <input class="comment-input my-1" type="text"> 
+            </div>
+            <button class="btn my-1" type="submit">Submit</button>
+        </form>
+    {{/if}}
+
     {{#if post.comments}}
         {{> comments }}
     {{/if}}
 </div>
+
+    {{!-- {{#if loggedIn}} --}}
+    <script src=".\js\new-comment.js"></script>
+    {{!-- {{/if}} --}}
+

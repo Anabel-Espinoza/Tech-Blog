@@ -84,9 +84,11 @@ header img{
     color: #1b4965
 }
 
-.new-post-form {
-    margin:auto;
-    border: lightgray solid thin;
+.new-post-form,
+.new-comment {
+    margin: auto;
+    border-top: lightgray solid thin;
+    border-bottom: lightgray solid thin;
     text-align: left;
     min-height: 75%;
     width: 80%;
@@ -94,7 +96,8 @@ header img{
     padding: 35px;
 }
 
-.new-post-form input {
+.new-post-form input,
+.comment-input {
     width: 100%;
 }
 
@@ -110,4 +113,12 @@ header img{
 #logout {
     background-color: transparent;
     color: white
+}
+
+.post { 
+    background-color: #b5e2fa;
+}
+
+.post a{
+    color: #1b4965;
 }

@@ -49,11 +49,22 @@ router.get('/signup', (req, res) => {
 })
 
 // GET logged in user posts
-router.get('/dashboard', (req, res) => {
-    res.render('dashboard')
+router.get('/dashboard', async (req, res) => {
+    try { 
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Post }]
+        })
+        const user = userData.get({ plain: true })
+
+        res.render('dashboard', { ...user, loggedIn: true })
+    } catch (err) {
+        res.status(500).json(err)
+    }
 })
 
 router.get('/new-post', (req,res) => {
     res.render('new-post')
 })
+
 module.exports = router
