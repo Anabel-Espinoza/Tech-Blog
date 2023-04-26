@@ -1,18 +1,18 @@
 [
     {
-      "body": "I just learned that in class and I agree with you!",
+      "text_comment": "I just learned that in class and I agree with you!",
       "date_created": "April 12, 2023 17:00:00",
       "user_id": 2,
       "post_id": 1
     },
     {
-      "body": "MVC uses a structure with views, models, and controllers",
+      "text_comment": "MVC uses a structure with views, models, and controllers",
       "date_created": "April 12, 2023 17:00:00",
       "user_id": 3,
       "post_id": 1
     },
     {
-        "body": "I can help you via zoom tonight, let me knowi if you can",
+        "text_comment": "I can help you via zoom tonight, let me knowi if you can",
         "date_created": "April 15, 2023 17:00:00",
         "user_id": 1,
         "post_id": 3
