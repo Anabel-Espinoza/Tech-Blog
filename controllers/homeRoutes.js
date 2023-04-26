@@ -73,13 +73,7 @@ router.get('/new-post', withAuth, async (req,res) => {
 
 router.get('/edit/:id', withAuth, async (req,res) => {
         try {
-            const postData = await Post.findByPk(req.params.id, {
-                include: [{ 
-                    model: User, 
-                    attributes: ['username'] }, { 
-                    model: Comment, include: { model: User, attributes: ['username'] } },
-                    ] 
-            })
+            const postData = await Post.findByPk(req.params.id)
             const post = postData.get({ plain: true })
             console.log(post)
             res.render('edit-post', { post })

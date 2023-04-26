@@ -46,6 +46,11 @@ NPM packages:
 - Dotenv
 - Bcrypt
 
+Other resources:
+ - Nested include in sequelize? https://stackoverflow.com/questions/33941943/nested-include-in-sequelize
+
+- How to use a input value from inside handlebar .hbs template: https://stackoverflow.com/questions/37861042/how-to-use-a-input-value-from-inside-handlebar-hbs-template
+
 ## License
 
 Project under MIT license.

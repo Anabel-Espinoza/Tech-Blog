@@ -5,7 +5,7 @@ const editPostHandler = async(event) => {
     const title = document.querySelector('#post-title').value.trim()
     const content = document.querySelector('#post-content').value.trim()
     const id = event.target.getAttribute('data-id')
-    console.log(id)
+    console.log(id, title, content)
 
     const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
