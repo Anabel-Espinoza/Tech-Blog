@@ -17,8 +17,17 @@ a {
     text-decoration: none;
 }
 
+.card-header:hover {
+    color: #1b4965;
+}
+
 nav a {
     color: white
+}
+
+nav a:hover {
+    color: #cae9ff;
+    transform: scale(1.05);
 }
 
 .new-post-btn {
@@ -45,12 +54,19 @@ header img{
     filter: brightness(0.6)
 }
 
+.bold{ 
+    font-weight: bolder;
+}
 .card-header {
     font-weight: bolder;
     color: #1b4965;
     text-decoration: none;
     cursor: pointer;
     font-size: 18px;
+}
+
+.header-post {
+    cursor:auto
 }
 
 .login {
@@ -112,7 +128,13 @@ header img{
 
 #logout {
     background-color: transparent;
-    color: white
+    color: white;
+    border: none
+}
+
+#logout:hover {
+    color: #cae9ff;
+    transform: scale(1.05);
 }
 
 .post { 

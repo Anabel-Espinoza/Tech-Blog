@@ -1,5 +1,5 @@
 <div class="card p-4">
-    <div class="card-header">{{post.title}}</div>
+    <div class="card-header header-post">{{post.title}}</div>
         <div class="card-body">
             <p>{{post.content}}</p>
         </div>
@@ -22,7 +22,7 @@
     {{#if post.comments}}
         {{> comments }}
     {{/if}}
-
+    <br>
 </div>
 
     {{#if loggedIn}}

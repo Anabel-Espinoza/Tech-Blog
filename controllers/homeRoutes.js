@@ -67,10 +67,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
 })
 
+// Dashboard render new post handlebar
 router.get('/new-post', withAuth, async (req,res) => {
     res.render('new-post')
 })
 
+// Dashboard edit logged-in user's post
 router.get('/edit/:id', withAuth, async (req,res) => {
         try {
             const postData = await Post.findByPk(req.params.id)
