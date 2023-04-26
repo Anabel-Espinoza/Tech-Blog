@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { Comment, User, Post } = require('../models')
-// add auth
+const withAuth = require('../utils/auth')
 
 // Get all posts and print in homepage
 router.get('/', async (req, res) => {
@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
         const allPosts = await Post.findAll({
             include: [ { model: User, attributes: ['username'] }]
         })
-        // res.status(200).json(allPosts)
         const posts = allPosts.map((post) => post.get({ plain: true }))
         console.log(posts)
         res.render('homepage', { posts, loggedIn: req.session.loggedIn })
@@ -44,12 +43,17 @@ router.get('/login', (req, res) => {
     res.render('login')
 })
 
+// Signup route
 router.get('/signup', (req, res) => {
+    if(req.session.loggedIn) {
+        res.redirect('/')
+         return
+    }
     res.render('signup')
 })
 
-// GET logged in user posts
-router.get('/dashboard', async (req, res) => {
+// Dashboard: GET logged-in user posts
+router.get('/dashboard', withAuth, async (req, res) => {
     try { 
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
@@ -63,8 +67,25 @@ router.get('/dashboard', async (req, res) => {
     }
 })
 
-router.get('/new-post', (req,res) => {
+router.get('/new-post', withAuth, async (req,res) => {
     res.render('new-post')
+})
+
+router.get('/edit/:id', withAuth, async (req,res) => {
+        try {
+            const postData = await Post.findByPk(req.params.id, {
+                include: [{ 
+                    model: User, 
+                    attributes: ['username'] }, { 
+                    model: Comment, include: { model: User, attributes: ['username'] } },
+                    ] 
+            })
+            const post = postData.get({ plain: true })
+            console.log(post)
+            res.render('edit-post', { post })
+        } catch (err) {
+            res.status(500).json(err)
+        }
 })
 
 module.exports = router
