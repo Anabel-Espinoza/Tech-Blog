@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const { Post } = require('../../models')
-// Add Auth 
+const withAuth = require('../../utils/auth')
 
-router.post('/', async (req,res) => {
+router.post('/', withAuth, async (req,res) => {
     try {
         const newPost = await Post.create({
             ...req.body,
@@ -15,9 +15,14 @@ router.post('/', async (req,res) => {
 })
 
 // Check update route !
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
-        const postToUpdate = await Post.update(req.body, {
+        const postToUpdate = await Post.update(
+        {
+            title: req.body.title, 
+            content: req.body.content
+        }, 
+        {
             where: {
                 id: req.params.id
             }
@@ -28,7 +33,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const postToDelete = await Post.destroy({
             where: {
@@ -36,9 +41,11 @@ router.delete('/:id', async (req, res) => {
                 user_id: req.session.user_id
             }
         })
-
+        console.log(postToDelete, 'id', req.params.id)
+        
         if(!postToDelete) {
             res.status(404).json({ message: 'No post found' })
+            console.log('not found')
             return
         }
 
