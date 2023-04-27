@@ -20,7 +20,8 @@ This application runs on the browser.
 
 ## Usage
 
-The link to access the deploy application is:  
+The link to access the deploy application is: https://mytech-blog.herokuapp.com/
+ 
 
 - From the homepage you can read existing posts.
 - To be able to comment/add posts, you need to signup/login.
