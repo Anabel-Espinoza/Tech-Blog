@@ -23,8 +23,9 @@ router.get('/post/:id', async (req, res) => {
             include: [{ 
                 model: User, 
                 attributes: ['username'] }, { 
-                model: Comment, include: { model: User, attributes: ['username'] } },
-                ] 
+                model: Comment, include: [{ model: User, attributes: ['username'] }] 
+                },
+            ] 
         })
         const post = postById.get({ plain: true })
         console.log(post)
@@ -67,12 +68,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
 })
 
-// Dashboard render new post handlebar
+// Render new post page
 router.get('/new-post', withAuth, async (req,res) => {
     res.render('new-post')
 })
 
-// Dashboard edit logged-in user's post
+// Render edit/delete current user's posts
 router.get('/edit/:id', withAuth, async (req,res) => {
         try {
             const postData = await Post.findByPk(req.params.id)

@@ -27,10 +27,13 @@ The link to access the deploy application is:
 - From the homepage you can click on any post title to see comments and add new comments.
 - In the dashboard, the user can see their current posts, and update them or delete them. User can also add a new post.
 
-The website looks like the following images (homepage, dashboard, signin pages):
-![Homepage]()
-![Dashboard](./public/assets/)
-![Login](./public/assets/)
+The website looks like the following images (homepage, dashboard, login, edit/delete post, and view single post pages):
+![Homepage](./public/images/homepage.png)
+![Dashboard](./public/images/dashboard.png)
+![Login](./public/images/login.png)
+![Edit-Post](./public/images/edit-post.png)
+![Post-view](./public/images/post-view.png)
+
 
 ## Credits
 
@@ -47,7 +50,10 @@ NPM packages:
 - Bcrypt
 
 Other resources:
- - Nested include in sequelize? https://stackoverflow.com/questions/33941943/nested-include-in-sequelize
+
+- Bootstrap Library.
+
+- Nested include in sequelize? https://stackoverflow.com/questions/33941943/nested-include-in-sequelize
 
 - How to use a input value from inside handlebar .hbs template: https://stackoverflow.com/questions/37861042/how-to-use-a-input-value-from-inside-handlebar-hbs-template
 
